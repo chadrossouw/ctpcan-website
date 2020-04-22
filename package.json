@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "docs": "start-storybook"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@storybook/html": "^5.3.18"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
