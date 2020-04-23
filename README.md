@@ -37,7 +37,7 @@
 
 - [Native browser service worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) is used to cache files offline.
 - [UUID](https://www.npmjs.com/package/uuid) is used in the `bust-cache.js` Node script to generate a unique cache ID after each build.
-- Cache is bypassed in `.env` via `BYPASS_CACHE` value. Set to `0` to disable cache bypassing.
+- Cache is bypassed in `.env` via `BYPASS_CACHE` value to enable SW offline cache set value to `false`.
 
 ### Testing
 
