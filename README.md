@@ -15,6 +15,18 @@
 - `npm run build`: Builds a production version of the website into the `dist/` folder.
 - `npm run docs`: Starts a Storybook instance based on all files in `docs/` with `.stories.js` suffix.
 
+## Local development
+
+All local development instances will do the following by default:
+
+- Mocks all API calls with fake data
+- Disables all offline caching (via Service worker) functionality.
+
+If you want to override these you can set the following variables in an `.env` file:
+
+- `AIRTABLE_AUTH_TOKEN`
+- `ENABLE_OFFLINE_CACHE`
+
 ## Architecture
 
 ### HTML
