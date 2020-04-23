@@ -4,24 +4,24 @@
 
 // const axios = require('axios');
 const chalk = require('chalk');
-const { config } = require('dotenv');
 const { v4: createId } = require('uuid');
+require('dotenv').config();
 
 /*
  * Primary export
  */
 
 module.exports = async () => {
-  const env = config().parsed || config({ path: '.env.development' }).parsed;
+  const ENABLE_OFFLINE_CACHE = process.env && process.env.ENABLE_OFFLINE_CACHE;
 
-  if (env.BYPASS_CACHE === 'true') {
-    console.warn(chalk.black.bgCyan('Service worker offline cache is bypassed.'))
+  if (ENABLE_OFFLINE_CACHE === 'true') {
+    console.log(chalk.black.bgCyan('"ENABLE_OFFLINE_CACHE" is set, therefore service worker offline cache is active in build.'))
   } else {
-    console.log(chalk.black.bgCyan('Service worker offline cache is active in build.'))
+    console.warn(chalk.black.bgCyan('"ENABLE_OFFLINE_CACHE" is not set, therefore service worker is disabled.'))
   }
 
   return {
-    cache_bypassed: env.BYPASS_CACHE === 'true',
+    cache_bypassed: ENABLE_OFFLINE_CACHE === 'true',
     unique_build_id: createId(),
   }
 };
