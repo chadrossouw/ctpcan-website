@@ -21,7 +21,7 @@ module.exports = async () => {
   }
 
   return {
-    cache_bypassed: ENABLE_OFFLINE_CACHE === 'true',
+    cache_bypassed: ENABLE_OFFLINE_CACHE !== 'true',
     unique_build_id: createId(),
   }
 };
