@@ -9,7 +9,10 @@
     <title>Cape Town Together</title>
     <meta name="description" content="...">
     <link rel="stylesheet" href="assets/styles.css">
-    <script src="assets/service-worker-init.js" defer></script>
+    
+    {% if meta.bypass_cache %} 
+      <script src="assets/service-worker-init.js" defer></script>
+    {% endif %}
   </head>
 
   <body>

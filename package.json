@@ -1,12 +1,18 @@
 {
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy",
+    "build": "npm run build:website && npm run build:bust-cache",
+    "build:website": "eleventy",
+    "build:bust-cache": "node scripts/bust-cache",
     "docs": "start-storybook"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@storybook/html": "^5.3.18"
+    "@storybook/html": "^5.3.18",
+    "chalk": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "faker": "^4.1.0",
+    "uuid": "^7.0.3"
   },
   "license": "ISC",
   "dependencies": {

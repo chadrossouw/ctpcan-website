@@ -4,6 +4,13 @@
 
 <h1>Cape Town Together Website</h1>
 
-Dynamic value: {{ dynamic.count }}
+{% for group in dynamic.groups %}
+  <div>
+    <span>{{ group.name }}</span>
+    <a href="{{ group.link }}">Contact group</a>
+  </div>
+{% else %}
+  <div>There was a problem loading groups</div>
+{% endfor %}
 
 {% endblock %}

@@ -2,7 +2,7 @@
  * Embedded constants 
  */
 
-const VERSION = '0.0.2';
+self.importScripts('/cache.js');
 
 const URLS = [
   './',
@@ -17,7 +17,7 @@ const URLS = [
  */
 
 const precache = () => caches
-  .open(VERSION)
+  .open(cache.token)
   .then((cache) => cache.addAll(URLS));
 
 const fromCache = (request) => caches
