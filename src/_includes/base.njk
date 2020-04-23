@@ -10,8 +10,10 @@
     <meta name="description" content="...">
     <link rel="stylesheet" href="assets/styles.css">
     
-    {% if not meta.cache_bypassed %} 
-      <script src="assets/service-worker-init.js" defer></script>
+    {% if meta.cache_bypassed %} 
+      <script src="assets/remove-service-worker.js" defer></script>
+    {% else %}
+      <script src="assets/add-service-worker.js" defer></script>
     {% endif %}
   </head>
 
