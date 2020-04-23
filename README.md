@@ -1,5 +1,7 @@
 # 🚩 CTP CAN Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a855d099-0d68-44df-b363-fa60fd420501/deploy-status)](https://app.netlify.com/sites/cptcan/deploys)
+
 ## Contribute
 
 1. Clone the repository by running `git clone https://github.com/CAN-Together/ctpcan-website.git`.
@@ -45,7 +47,7 @@
 - [Storybook](https://storybook.js.org/) is used for documentation.
 
 
-## Folder Structure
+### Folder Structure
 
 - `src/pages/` contains all URL routes and associated HTML.
 - `src/static/` are for assets that are copied directly as is into the production build.
