@@ -9,20 +9,20 @@
 
 ## NPM Scripts
 
-- `npm start`: Starts hot-reloading (updates as you save files) local instance of the website.
-- `npm run build`: Build a production version of the website into the `dist/` folder.
-- `npm run docs`: Starts a Storybook instance that consumes all `*.stories.js` files from `docs/`
+- `npm start`: Starts an auto-updating instance of the website locally.
+- `npm run build`: Builds a production version of the website into the `dist/` folder.
+- `npm run docs`: Starts a Storybook instance based on all files in `docs/` with `.stories.js` suffix.
 
 ## Architecture
 
 ### HTML
 
-- [Nunjucks](https://mozilla.github.io/nunjucks/) and is used for HTML templating.
+- [Nunjucks](https://mozilla.github.io/nunjucks/) is used for HTML templating.
 - [11ty](https://www.11ty.dev/) is used to build static HTML.
 - [Chalk](https://www.npmjs.com/package/chalk) is used to log pretty messages to terminal/command-line during build process.
-- [Axios](https://github.com/axios/axios) used to abstract away REST API calls during the HTML build process.
+- [Axios](https://github.com/axios/axios) used to abstract away REST API calls during HTML build process.
 - All REST API data is fed to templates through the `{{ dynamic }}` object.
-
+- Other values are passed to `{{ meta }}` object.
 
 ### CSS
 
@@ -36,7 +36,7 @@
 ### Service Worker Caching
 
 - [Native browser service worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) is used to cache files offline.
-- [UUID](https://www.npmjs.com/package/uuid) is used in the `bust-cache.js` Node script to generate a unique cache ID after each build.
+- [UUID](https://www.npmjs.com/package/uuid) is used to generate a new `cache.js` file with each build.
 - Cache is bypassed in `.env` via `BYPASS_CACHE` value. Set to `0` to disable cache bypassing.
 
 ### Testing

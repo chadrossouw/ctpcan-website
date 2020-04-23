@@ -2,7 +2,7 @@
  * Third-party modules 
  */
 
-// const axios = require('axios');
+const axios = require('axios');
 const chalk = require('chalk');
 const { config } = require('dotenv');
 
@@ -33,27 +33,20 @@ const transformGroupsData = ({ records }) => {
 
 module.exports = async () => {
   const { parsed: env } = config();
-  const isIgnoreCache = env.BYPASS_CACHE === 'true';
 
   if (!env.AIRTABLE_AUTH_TOKEN) {
-    console.warn(chalk.black.bgYellow('NOTE: No AIRTABLE_AUTH_TOKEN found in ".env" file. The "{{ dynamic }}" object will be populated with mock data.'))
+    console.warn(chalk.black.bgYellow('No "AIRTABLE_AUTH_TOKEN" found in ".env" file. The "{{ dynamic }}" object has been populated with mock data.'))
 
     return {
       groups: transformGroupsData(AIRTABLE_GROUP_API_MOCK),
-      meta: {
-        bypassCache: isIgnoreCache,
-      }
     }
   } 
 
-  console.log(chalk.black.bgGreen('AIRTABLE_AUTH_TOKEN found in ".env" file. The "{{ dynamic }}" object will be populated with production data.'));
-  const { data } = await Promise.resolve({ data: AIRTABLE_GROUP_API_MOCK });
+  console.log(chalk.black.bgGreen('"AIRTABLE_AUTH_TOKEN" found in ".env" file. The "{{ dynamic }}" object has been populated with production data.'));
+  const { data } = await axios.get(`https://api.airtable.com/v0/app68ZSxKJJR3AoCB/Groups?api_key=${env.AIRTABLE_AUTH_TOKEN}`)
 
   return {
     groups: transformGroupsData(data),
-    meta: {
-      bypassCache: isIgnoreCache,
-    }
   }
 };
 

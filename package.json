@@ -1,9 +1,7 @@
 {
   "scripts": {
     "start": "eleventy --serve",
-    "build": "npm run build:website && npm run build:bust-cache",
-    "build:website": "eleventy",
-    "build:bust-cache": "node scripts/bust-cache",
+    "build": "eleventy",
     "docs": "start-storybook"
   },
   "devDependencies": {

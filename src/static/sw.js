@@ -10,6 +10,7 @@ const URLS = [
   './favicon.ico',
   './manifest.json',
   './assets/styles.css',
+  './assets/service-worker-init.js',
 ];
 
 /*
@@ -17,11 +18,11 @@ const URLS = [
  */
 
 const precache = () => caches
-  .open(cache.token)
+  .open(build_id)
   .then((cache) => cache.addAll(URLS));
 
 const fromCache = (request) => caches
-  .open(VERSION)
+  .open(build_id)
   .then((cache) => cache
     .match(request)
     .then((matching) => matching || Promise.reject('no-match'))
