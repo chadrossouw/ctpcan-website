@@ -10,7 +10,8 @@ const URLS = [
   './favicon.ico',
   './manifest.json',
   './assets/styles.css',
-  './assets/service-worker-init.js',
+  './assets/add-service-worker.js',
+  './assets/remove-service-worker.js',
 ];
 
 /*
