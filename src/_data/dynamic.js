@@ -32,7 +32,7 @@ const transformGroupsData = ({ records }) => {
  */
 
 module.exports = async () => {
-  const { parsed: env } = config();
+  const env = config().parsed || config({ path: '.env.development' }).parsed;
 
   if (!env.AIRTABLE_AUTH_TOKEN) {
     console.warn(chalk.black.bgYellow('No "AIRTABLE_AUTH_TOKEN" found in ".env" file. The "{{ dynamic }}" object has been populated with mock data.'))

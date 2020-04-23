@@ -12,7 +12,7 @@ const { v4: createId } = require('uuid');
  */
 
 module.exports = async () => {
-  const { parsed: env } = config();
+  const env = config().parsed || config({ path: '.env.development' }).parsed;
 
   if (env.BYPASS_CACHE === 'true') {
     console.warn(chalk.black.bgCyan('Service worker offline cache is bypassed.'))
