@@ -25,7 +25,7 @@ const fromCache = (request) => caches
   .open(build_id)
   .then((cache) => cache
     .match(request)
-    .then((matching) => matching || Promise.reject('no-match'))
+    .then((matching) => matching || fetch(request))
   );
 
 /*
